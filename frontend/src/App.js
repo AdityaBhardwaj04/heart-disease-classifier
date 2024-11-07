@@ -278,7 +278,7 @@ const App = () => {
 
                     <div className="mb-4">
                         <label className="block text-gray-700">
-                            Thalium Stress Test Results
+                            Thalassemia
                         </label>
                         <select
                             name="thal"
@@ -288,46 +288,45 @@ const App = () => {
                             required
                         >
                             <option value="">Select</option>
-                            <option value="1">Normal</option>
-                            <option value="2">Fixed defect</option>
-                            <option value="3">Reversible defect</option>
+                            <option value="3">Normal</option>
+                            <option value="6">Fixed Defect</option>
+                            <option value="7">Reversable Defect</option>
                         </select>
                     </div>
-                </div>
 
-                <button
-                    type="submit"
-                    className="w-full py-3 mt-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                >
-                    Predict
-                </button>
-            </form>
-
-            {prediction !== null && (
-                <Modal
-                    isOpen={isModalOpen}
-                    onRequestClose={closeModal}
-                    className="modal"
-                    overlayClassName="modal-overlay"
-                >
-                    <div className="bg-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
-                        <h2 className="text-2xl font-bold mb-4">
-                            Prediction Result
-                        </h2>
-                        <p className="text-lg mb-6">
-                            {prediction
-                                ? "High chance of heart disease"
-                                : "Low chance of heart disease"}
-                        </p>
+                    <div className="col-span-2 flex justify-center mt-6">
                         <button
-                            onClick={closeModal}
+                            type="submit"
                             className="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
                         >
-                            Close
+                            Predict
                         </button>
                     </div>
-                </Modal>
-            )}
+                </div>
+            </form>
+
+            {/* Modal */}
+            {/* Modal */}
+<Modal
+    isOpen={isModalOpen}
+    onRequestClose={closeModal}
+    className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+    overlayClassName="modal-overlay"
+>
+    <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h2 className="text-2xl font-bold mb-4">Prediction Result</h2>
+        <p className="text-lg mb-6">
+            {prediction ? "High chance of heart disease" : "Low chance of heart disease"}
+        </p>
+        <button
+            onClick={closeModal}
+            className="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+        >
+            Close
+        </button>
+    </div>
+</Modal>
+
         </div>
     );
 };
